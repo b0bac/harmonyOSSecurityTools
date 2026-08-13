@@ -15,11 +15,11 @@ HarmonyOS DSoftBus (分布式软总线) 探测与指纹识别工具
 
 用法:
   python dsoftbus_scanner.py scan                  # 全网扫描 (默认)
-  python dsoftbus_scanner.py scan --subnet 192.168.3.0/24
-  python dsoftbus_scanner.py deep --ip 192.168.3.72
+  python dsoftbus_scanner.py scan --subnet 192.168.1.0/24
+  python dsoftbus_scanner.py deep --ip 192.168.1.50
   python dsoftbus_scanner.py monitor --rounds 10 --interval 12
   python dsoftbus_scanner.py multicast
-  python dsoftbus_scanner.py linktest --ip 192.168.3.72
+  python dsoftbus_scanner.py linktest --ip 192.168.1.50
   python dsoftbus_scanner.py export --format json
 
 仅使用 Python 标准库，零依赖。
@@ -1213,12 +1213,12 @@ def build_parser():
         epilog="""
 示例:
   %(prog)s scan                          # 全网扫描 (默认)
-  %(prog)s scan --subnet 192.168.3.0/24  # 指定网段
-  %(prog)s deep --ip 192.168.3.72        # 单 IP 全协议深探
+  %(prog)s scan --subnet 192.168.1.0/24  # 指定网段
+  %(prog)s deep --ip 192.168.1.50        # 单 IP 全协议深探
   %(prog)s monitor --rounds 10           # 稳定性监测
   %(prog)s multicast                     # 组播发现
-  %(prog)s linktest --ip 192.168.3.72    # 亮灭屏关联
-  %(prog)s note add --mac 22-16-52-EE-F9-50 --form PC --note "鸿蒙PC"
+  %(prog)s linktest --ip 192.168.1.50    # 亮灭屏关联
+  %(prog)s note add --mac AA-BB-CC-DD-EE-FF --form PC --note "示例-PC"
   %(prog)s note list                     # 查看已知设备库
   %(prog)s export --format md            # 导出 Markdown 报告
 """,
@@ -1227,7 +1227,7 @@ def build_parser():
 
     # scan
     p_scan = sub.add_parser("scan", help="全网扫描 + 指纹识别")
-    p_scan.add_argument("--subnet", help="网段，如 192.168.3.0/24 (默认自动检测)")
+    p_scan.add_argument("--subnet", help="网段，如 192.168.1.0/24 (默认自动检测)")
     p_scan.add_argument("--concurrency", type=int, default=32, help="并发数 (默认 32)")
     p_scan.set_defaults(func=cmd_scan)
 

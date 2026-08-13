@@ -10,3 +10,12 @@ __pycache__/
 .DS_Store
 .idea/
 .vscode/
+
+# 测试 / 取证输出(含真实凭据/设备标识, 严禁提交)
+result.txt
+report.json
+report.txt
+*.pcap
+*.pcapng
+forensic_*.tar.gz
+probe/

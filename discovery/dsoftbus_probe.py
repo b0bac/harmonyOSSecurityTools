@@ -1104,13 +1104,13 @@ def selftest():
     check("BLE 解析 deviceName", bp and bp.get("deviceName") == "Harmony")
 
     # 设备名启发式（解决 HarmonyOS NEXT 商用版 type 枚举与开源版不一致）
-    check("启发式 MateBook→笔记本", guess_type_by_name("挖洞的土拨鼠的MateBook 14") == "笔记本/PC")
-    check("启发式 MatePad→平板", guess_type_by_name("挖洞的土拨鼠的MatePad Air") == "平板(Pad)")
-    check("启发式 Mate X5→手机", guess_type_by_name("于的Mate X5") == "手机(Phone)")
+    check("启发式 MateBook→笔记本", guess_type_by_name("MateBook 14") == "笔记本/PC")
+    check("启发式 MatePad→平板", guess_type_by_name("MatePad Air") == "平板(Pad)")
+    check("启发式 Mate X5→手机", guess_type_by_name("Mate X5") == "手机(Phone)")
     check("启发式 Pura→手机", guess_type_by_name("华为Pura 70") == "手机(Phone)")
-    check("启发式 Mate60→手机", guess_type_by_name("我的Mate60 Pro") == "手机(Phone)")
-    check("启发式 MateTV→智慧屏", guess_type_by_name("挖洞的土拨鼠的智慧屏 MateTV") == "智慧屏(TV)")
-    check("deviceId 提取 UDID", _clean_device_id('{"UDID":"085CD07FDBCA0818"}') == "085CD07FDBCA0818")
+    check("启发式 Mate60→手机", guess_type_by_name("Mate60 Pro") == "手机(Phone)")
+    check("启发式 MateTV→智慧屏", guess_type_by_name("智慧屏 MateTV") == "智慧屏(TV)")
+    check("deviceId 提取 UDID", _clean_device_id('{"UDID":"0123456789ABCDEF"}') == "0123456789ABCDEF")
     lab, _ri, src = resolve_device_type({"devicename": "MateBook 14", "type": 0, "typeEx": 0})
     check("resolve 名称优先(MateBook type=0)", lab == "笔记本/PC" and src == "name")
 
