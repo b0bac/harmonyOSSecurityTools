@@ -1,0 +1,12 @@
+# Claude Code 本地配置与记忆(勿提交)
+.claude/
+
+# Python 虚拟环境与缓存
+.venv/
+__pycache__/
+*.py[cod]
+
+# IDE / 系统
+.DS_Store
+.idea/
+.vscode/
