@@ -23,6 +23,7 @@
 | **sandbox_forensics** | 应用沙箱只读取证 | `forensics/` | **设备** | ❌ | ❌ | `--root` |
 | **sensitive_collector** | 全设备敏感信息/明文凭据收集 | `forensics/` | **设备** | ❌ | ✅ | 15 项 |
 | **trust_mapper** | 设备间信任拓扑测绘 | `forensics/` | 设备/主机 | ❌ | ❌ | 9 项 |
+| **sandbox_escape** | 应用沙箱逃逸攻击面审计(A/B/C 三层,14 工具) | `sandbox_escape/` | 主机+设备 | ❌ | ❌ | 详见子 README |
 
 ---
 
@@ -43,11 +44,15 @@ harmonyOSSecurityTools/
 │   └── vuln_mapper/
 ├── testing/                  ← 阶段 3:主动协议测试
 │   └── proto_fuzzer/
-└── forensics/                ← 阶段 4:设备取证 + 信任测绘
-    ├── recon_layout.py
-    ├── sandbox_forensics/
-    ├── sensitive_collector/
-    └── trust_mapper/
+├── forensics/                ← 阶段 4:设备取证 + 信任测绘
+│   ├── recon_layout.py
+│   ├── sandbox_forensics/
+│   ├── sensitive_collector/
+│   └── trust_mapper/
+└── sandbox_escape/           ← 专题:应用沙箱逃逸攻击面审计
+    ├── analysis/  testing/  common/
+    ├── README.md  MANUAL.md  requirements.txt
+    └── reports/              ← 脱敏技术报告 + 测试报告
 ```
 
 ---
@@ -181,6 +186,18 @@ python3 trust_mapper.py graph > trust.dot             # Graphviz dot
 # dot -Tsvg trust.dot -o trust.svg
 ```
 **自检**:`python test_trust_mapper.py` → 9 项 OK。
+
+---
+
+### 专题 · 应用沙箱逃逸攻击面审计(`sandbox_escape/`)
+
+独立于 DSoftBus 链路的横向专题:HarmonyOS 应用沙箱的越界能力评估,覆盖 A(文件/数据面
+三闸判定)、B(SELinux 域转移三条件复核)、C(IPC 服务接口校验审计)三层,14 个工具
+(T1~T11 + 设备侧一键脚本)+ 操作手册 + 已脱敏评估报告。**全部离线/只读分析**,
+无主动发包。
+
+工具矩阵与快速上手见 `sandbox_escape/README.md`,操作纪律(通道工程/三闸判定法/
+坑速查)见 `sandbox_escape/MANUAL.md`。
 
 ---
 

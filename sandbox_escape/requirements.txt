@@ -1,0 +1,9 @@
+# sandbox_escape 依赖清单
+#
+# 仅 T1 transition_mapper 的「实时 sesearch 模式」需要 setools4（sesearch 命令）：
+#   brew install setools          (macOS)
+#   pip install setools           (亦可，命令行工具随包安装)
+# 其余工具全部零三方依赖（Python 3.8+ 标准库）。
+# T1 另提供 --rules-file 离线模式：在任意机器上先用 sesearch 导出规则文本即可分析，
+# 适合真机/受限环境（拷过去就能跑）。
+setools>=4.4
