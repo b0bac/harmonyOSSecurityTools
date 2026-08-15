@@ -19,3 +19,7 @@ report.txt
 *.pcapng
 forensic_*.tar.gz
 probe/
+
+# 大体积二进制产物只留本地(md 源入库)
+*.pdf
+docs/*.xlsx
