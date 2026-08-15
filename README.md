@@ -51,8 +51,8 @@ harmonyOSSecurityTools/
 │   └── trust_mapper/
 └── sandbox_escape/           ← 专题:应用沙箱逃逸攻击面审计
     ├── analysis/  testing/  common/
-    ├── README.md  MANUAL.md  requirements.txt
-    └── reports/              ← 脱敏技术报告 + 测试报告
+    └── README.md  MANUAL.md  requirements.txt
+    # 评估报告(md/pdf)不入库,留本地
 ```
 
 ---
